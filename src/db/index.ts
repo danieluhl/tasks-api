@@ -1,11 +1,14 @@
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Client } from "pg";
+import { drizzle } from "drizzle-orm/connect";
 
 import { env } from "@/env";
 
 import * as schema from "./schema";
 
-const client = new Client({ connectionString: env.DATABASE_URL });
-const db = drizzle(client, { schema });
+const db = await drizzle("node-postgres", {
+  connection: {
+    connectionString: env.DATABASE_URL,
+  },
+  schema,
+});
 
 export { db };
