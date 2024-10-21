@@ -3,6 +3,8 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
+    "build": "dotenvx run -- ./bin/build.sh",
+    "start": "dotenvx run -- node ./dist/src/index.js",
     "dev": "./node_modules/.bin/dotenvx run -- tsx watch src/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
